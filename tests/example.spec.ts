@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('acess site and buy a product', async ({ page }) => {
   await page.goto('/');
   await page.getByPlaceholder("Username").fill('standard_user')
   await page.getByPlaceholder('Password').fill('secret_sauce')
@@ -21,7 +21,6 @@ test('has title', async ({ page }) => {
 
   await page.getByTestId('continue').click()
 
-
   await expect(page.getByText('Payment Information')).toBeVisible()
   
   await page.getByTestId('finish').click()
@@ -29,13 +28,3 @@ test('has title', async ({ page }) => {
   await expect(page.getByText('Thank you for your order!')).toBeVisible()
 
 });
-
-// test('get started link', async ({ page }) => {
-//   await page.goto('https://playwright.dev/');
-
-//   // Click the get started link.
-//   await page.getByRole('link', { name: 'Get started' }).click();
-
-//   // Expects page to have a heading with the name of Installation.
-//   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-// });
